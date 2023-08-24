@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+    <style>
+     *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing:border-box ;
+    background-color: rgb(199, 225, 248);
+    outline:none;
+}
+
+input{
+    grid-column: span 4;
+    height: 70px;
+    width: 260px ;
+    background-color: #f7f8f9;
+     border: none;
+    border-radius: 30px;
+    color: rgb(67, 78, 83);
+    font-size: 50px;
+    text-align: end;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+button{
+    height: 48px;
+    width: 48px;
+    border: none;
+    border-radius: 50%;
+    margin: 8px;
+    font-size: 16px;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.calculator{
+    background-color: rgb(144, 196, 241);
+    padding: 15px;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,70px);
+
+
+}
+
+.n{
+    background-color: #f7f8f9;
+
+}
+.equal{
+
+    background-color: #5ba1f2;
+}
+.o{
+   
+    background-color: #e5f0f8;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" placeholder="0" id="output">
+            <button onclick="Clear()" class="o">C</button>
+            <button onclick="Display('%')" class="o">%</button>
+            <button onclick="Delete()" class="o">dl</button>
+            <button onclick="Display('/')" class="o">/</button>
+
+            <button onclick="Display('9')" class="n">9</button>
+            <button onclick="Display('8')" class="n">8</button>
+            <button onclick="Display('7')" class="n">7</button>
+            <button onclick="Display('*')" class="o">*</button>
+
+            <button onclick="Display('6')" class="n">6</button>
+            <button onclick="Display('5')" class="n">5</button>
+            <button onclick="Display('4')" class="n">4</button>
+            <button onclick="Display('-')"class="o">-</button>
+
+            <button onclick="Display('3')" class="n">3</button>
+            <button onclick="Display('2')" class="n">2</button>
+            <button onclick="Display('1')" class="n">1</button>
+            <button onclick="Display('+')" class="o">+</button>
+
+            <button onclick="Display('00')" class="n">00</button>
+            <button onclick="Display('0')" class="n">0</button>
+            <button onclick="Display('.')" class="n">.</button>
+            <button onclick="Calculate()" class="equal">=</button>
+        </div>
+
+    </div>
+    <script>
+         let op=document.getElementById("output");
+         function Display(number)
+         {
+            op.value +=number;
+
+         }
+         function Calculate()
+         {
+            try{
+                op.value=eval(op.value);
+            }
+            catch(error)
+            {
+                alert("Invalid")
+            }
+         }
+         function Clear(){
+            op.value=" ";
+         }
+         function Delete()
+         {
+            op.value =op.value.slice(0,-1);
+         }
+    </script>
+</body>
+</html>
